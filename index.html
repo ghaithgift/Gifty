@@ -3,39 +3,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gifty</title>
+    <title>Gifty - Send Secret Gift</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f8;
+            font-family: sans-serif;
+            background-color: #f5f5ff;
+            padding: 40px;
             text-align: center;
-            padding: 50px;
         }
         h1 {
             color: #333;
         }
-        p {
-            color: #666;
-            font-size: 18px;
+        form {
+            margin-top: 30px;
         }
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #5a67d8;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
+        input, textarea, select, button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
             font-size: 16px;
         }
-        .button:hover {
-            background-color: #434190;
+        button {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5548d9;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to Gifty!</h1>
-    <p>Send a mysterious gift with a hidden message.</p>
-    <a href="#" class="button">Send a Secret Gift</a>
+    <h1>Send a Secret Gift</h1>
+    <form action="confirmation.html">
+        <input type="text" name="recipient" placeholder="Recipient Name (Optional)">
+        <select name="gift-type">
+            <option value="">Select Gift Type</option>
+            <option value="flowers">Flowers</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="both">Flowers & Chocolate</option>
+        </select>
+        <textarea name="message" placeholder="Write your secret message..." rows="5"></textarea>
+        <button type="submit">Send Anonymously</button>
+    </form>
 </body>
 </html>

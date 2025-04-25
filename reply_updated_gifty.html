@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gifty - Reply</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #fff5f5;
+            padding: 40px;
+            text-align: center;
+        }
+        textarea, button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e63946;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reply to the Anonymous Sender</h2>
+    <form id="replyForm">
+        <textarea name="reply" placeholder="Write your reply message..." rows="5" required></textarea>
+        <button type="submit">Send Reply</button>
+    </form>
+    <p id="status"></p>
+
+    <script>
+        const form = document.getElementById('replyForm');
+        const statusText = document.getElementById('status');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            fetch('https://script.google.com/macros/s/AKfycbyT2KrdvizRxoGNfiGVyFQ27Vpgfomgp-_dMyvMLIchXJSENEsEER_C39ylCyzkRKUw/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                statusText.innerText = "✅ تم إرسال ردّك بنجاح!";
+                form.reset();
+            })
+            .catch(error => {
+                statusText.innerText = "❌ صار في مشكلة، جرّب بعد شوي.";
+            });
+        });
+    </script>
+</body>
+</html>

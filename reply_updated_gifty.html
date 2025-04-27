@@ -48,9 +48,18 @@
   <h1>اكتب رسالتك لمن أرسل لك الهدية</h1>
 
   <form>
-    <textarea placeholder="اكتب رسالتك هنا..."></textarea><br>
+    <textarea placeholder="اكتب رسالتك هنا..." required></textarea><br>
     <button type="submit">إرسال الرد</button>
   </form>
+
+  <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('شكراً لك! تم إرسال ردك بنجاح.');
+      form.reset();
+    });
+  </script>
 
 </body>
 </html>

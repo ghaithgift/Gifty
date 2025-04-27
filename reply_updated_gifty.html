@@ -17,10 +17,9 @@
       color: #C2A85D;
       margin-bottom: 20px;
     }
-    textarea {
+    textarea, input {
       width: 90%;
       max-width: 400px;
-      height: 150px;
       padding: 10px;
       font-size: 16px;
       border: 1px solid #C2A85D;
@@ -45,19 +44,30 @@
 </head>
 <body>
 
-  <h1>اكتب رسالتك لمن أرسل لك الهدية</h1>
+  <h1>اكتب ردك لمن أرسل لك الهدية</h1>
 
-  <form>
-    <textarea placeholder="اكتب رسالتك هنا..." required></textarea><br>
+  <form id="replyForm">
+    <input type="text" id="orderNumber" placeholder="اكتب رقم الطلبية هنا..." required><br>
+    <textarea id="message" placeholder="اكتب رسالتك هنا..." required></textarea><br>
     <button type="submit">إرسال الرد</button>
   </form>
 
   <script>
-    const form = document.querySelector('form');
+    const form = document.getElementById('replyForm');
     form.addEventListener('submit', function(event) {
       event.preventDefault();
-      alert('شكراً لك! تم إرسال ردك بنجاح.');
-      form.reset();
+      
+      const orderNumber = document.getElementById('orderNumber').value.trim();
+      const message = document.getElementById('message').value.trim();
+      
+      if (orderNumber === '' || isNaN(orderNumber)) {
+        alert('رجاءً تأكد من كتابة رقم الطلبية بشكل صحيح (أرقام فقط).');
+      } else if (message === '') {
+        alert('رجاءً اكتب رسالتك قبل الإرسال.');
+      } else {
+        alert('شكراً لك! تم إرسال ردك بنجاح.');
+        form.reset();
+      }
     });
   </script>
 

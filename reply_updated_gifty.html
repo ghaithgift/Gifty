@@ -1,64 +1,56 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>Gifty - Reply</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: #fff5f5;
-            padding: 40px;
-            text-align: center;
-        }
-        textarea, button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
-            width: 80%;
-            max-width: 400px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #e63946;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gifty - اكتب ردك</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #000000; /* خلفية سوداء */
+      padding: 30px;
+      text-align: center;
+      direction: rtl;
+      color: #FFFFFF; /* نص أبيض */
+    }
+    h1 {
+      color: #C2A85D; /* ذهبي */
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 90%;
+      max-width: 400px;
+      height: 150px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #C2A85D;
+      border-radius: 5px;
+      background-color: #15191E;
+      color: white;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #C2A85D;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #A58E4A;
+    }
+  </style>
 </head>
 <body>
-    <h2>Reply to the Anonymous Sender</h2>
-    <form id="replyForm">
-        <textarea name="reply" placeholder="Write your reply message..." rows="5" required></textarea>
-        <button type="submit">Send Reply</button>
-    </form>
-    <p id="status"></p>
 
-    <script>
-        const form = document.getElementById('replyForm');
-        const statusText = document.getElementById('status');
+  <h1>اكتب رسالتك لمن أرسل لك الهدية</h1>
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-            fetch('https://script.google.com/macros/s/AKfycbyT2KrdvizRxoGNfiGVyFQ27Vpgfomgp-_dMyvMLIchXJSENEsEER_C39ylCyzkRKUw/exec', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                statusText.innerText = "✅ تم إرسال ردّك بنجاح!";
-                form.reset();
-            })
-            .catch(error => {
-                statusText.innerText = "❌ صار في مشكلة، جرّب بعد شوي.";
-            });
-        });
-    </script>
+  <form>
+    <textarea placeholder="اكتب رسالتك هنا..."></textarea><br>
+    <button type="submit">إرسال الرد</button>
+  </form>
+
 </body>
 </html>

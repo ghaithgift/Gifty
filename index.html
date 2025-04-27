@@ -21,8 +21,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 200px; /* رجعنا الحجم متل قبل */
-      color: rgba(194, 168, 93, 0.08);
+      font-size: 200px; /* الحجم مضبوط */
+      color: rgba(194, 168, 93, 0.08); /* ذهبي خفيف */
       font-weight: bold;
       pointer-events: none;
       user-select: none;
@@ -101,19 +101,19 @@
   <h1>اختر هديتك</h1>
 
   <div class="gift">
-    <img src="https://cdn.pixabay.com/photo/2017/02/23/13/05/flowers-2092459_1280.jpg" alt="باقة ورد فاخرة">
+    <img src="https://i.ibb.co/f0z2d9D/flower-gift.jpg" alt="باقة ورد فاخرة">
     <p>باقة ورد فاخرة</p>
     <button onclick="selectGift('باقة ورد فاخرة')">اختيار</button>
   </div>
 
   <div class="gift">
-    <img src="https://cdn.pixabay.com/photo/2017/04/23/08/28/chocolates-2255151_1280.jpg" alt="صندوق شوكولا فاخر">
+    <img src="https://i.ibb.co/zNGPfRg/chocolate-gift.jpg" alt="صندوق شوكولا فاخر">
     <p>صندوق شوكولا فاخر</p>
     <button onclick="selectGift('صندوق شوكولا فاخر')">اختيار</button>
   </div>
 
   <div class="gift">
-    <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/perfume-1952997_1280.jpg" alt="عطر أنيق">
+    <img src="https://i.ibb.co/xD9FYcB/perfume-gift.jpg" alt="عطر أنيق">
     <p>عطر أنيق</p>
     <button onclick="selectGift('عطر أنيق')">اختيار</button>
   </div>
@@ -139,7 +139,7 @@
       alert('تم اختيار: ' + giftName);
     }
 
-    function saveOrder() {
+    function saveOrder(event) {
       const phone = document.getElementById('recipientPhone').value.trim();
       const selectedPayment = document.querySelector('input[name="payment"]:checked');
       const selectedGift = localStorage.getItem('selectedGift');
@@ -162,7 +162,7 @@
         return;
       }
 
-      // تخزين مؤقت للطلب (فقط للعرض لاحقاً)
+      // تخزين مؤقت للطلب
       localStorage.setItem('recipientPhone', phone);
       localStorage.setItem('paymentMethod', selectedPayment.value);
     }

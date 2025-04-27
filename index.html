@@ -21,7 +21,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 600px;
+      font-size: 200px; /* رجعنا الحجم متل قبل */
       color: rgba(194, 168, 93, 0.08);
       font-weight: bold;
       pointer-events: none;
@@ -65,7 +65,7 @@
     button:hover {
       background-color: #A58E4A;
     }
-    input, select {
+    input[type="text"], select {
       padding: 10px;
       margin: 10px 0;
       width: 300px;
@@ -83,9 +83,14 @@
       z-index: 1;
     }
     .payment-options label {
-      display: block;
-      margin: 10px 0;
+      display: inline-block;
+      margin: 10px;
       font-size: 18px;
+      color: white;
+      cursor: pointer;
+    }
+    .payment-options input[type="radio"] {
+      margin-left: 5px;
     }
   </style>
 </head>

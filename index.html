@@ -12,9 +12,26 @@
       text-align: center;
       direction: rtl;
       color: #FFFFFF;
+      position: relative; /* ضروري لمكان الكلمة الخلفية */
+      overflow-x: hidden;
+    }
+    .background-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 120px;
+      color: rgba(194, 168, 93, 0.08); /* دهبي خفيف جداً */
+      font-weight: bold;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      white-space: nowrap;
     }
     h1, h2 {
       color: #C2A85D;
+      position: relative;
+      z-index: 1;
     }
     .gift {
       background-color: #15191E;
@@ -23,6 +40,8 @@
       width: 300px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 1;
     }
     .gift img {
       width: 100%;
@@ -38,6 +57,8 @@
       border-radius: 5px;
       font-size: 16px;
       cursor: pointer;
+      position: relative;
+      z-index: 1;
     }
     button:hover {
       background-color: #A58E4A;
@@ -51,9 +72,13 @@
       border-radius: 5px;
       background-color: #15191E;
       color: white;
+      position: relative;
+      z-index: 1;
     }
     .payment-options {
       margin: 20px 0;
+      position: relative;
+      z-index: 1;
     }
     .payment-options label {
       display: block;
@@ -63,6 +88,8 @@
   </style>
 </head>
 <body>
+
+  <div class="background-text">Gifty</div>
 
   <h1>اختر هديتك</h1>
 
@@ -94,9 +121,9 @@
   <h2>أدخل رقم موبايل المستلم</h2>
   <input type="text" placeholder="مثال: 09XXXXXXXX"><br>
 
- <a href="confirmation.html">
-  <button type="button">إرسال الطلب</button>
-</a>
+  <a href="confirmation.html">
+    <button type="button">إرسال الطلب</button>
+  </a>
 
 </body>
 </html>
